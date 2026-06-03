@@ -1,6 +1,6 @@
 # CPU Scheduling Algorithms Simulator
 
-CPU Scheduling Algorithms Simulator is a C-based operating-systems project that simulates process scheduling using a process generator, an emulated clock, System V IPC, and forked child processes. The scheduler supports Round Robin, Highest Priority First, and Shortest Remaining Time Next scheduling.
+CPU Scheduling Algorithms Simulator is a C operating-systems project that simulates process scheduling with a process generator, an emulated clock, System V IPC and forked child processes. The scheduler can schedule using the Round Robin, Highest Priority First and Shortest Remaining Time Next.
 
 ## Preview
 
@@ -34,14 +34,12 @@ Shortest Remaining Time Next can preempt the running process when a process with
 
 ## Main Features
 
-* C implementation of an operating-system scheduling simulation
 * Round Robin scheduling
 * Highest Priority First scheduling
 * Shortest Remaining Time Next scheduling
 * Process generator that reads `processes.txt`
 * Emulated clock using shared memory
 * Scheduler/process communication using System V message queues
-* Forked child processes representing running jobs
 * Scheduler log output through `scheduler.log`
 * Performance summary output through `scheduler.perf`
 
@@ -92,7 +90,7 @@ The project uses separate C programs for the clock, process generator, scheduler
 | `headers.h` | Shared definitions, IPC helpers, queue, and priority-queue structures |
 | `processes.txt` | Input process file |
 
-The scheduler receives arriving processes through a System V message queue and uses the shared clock to update simulation time. Each selected process is started or resumed as a forked child process. The scheduler logs process state changes and computes performance metrics after the simulation.
+The scheduler reads processes arriving from the System V message queue. The shared clock is used to update the simulation time. The selected processes are forked and started or continued. After the simulation, the scheduler logs process state changes and computes performance metrics.
 
 ## How to Run / Review
 
@@ -131,4 +129,4 @@ make clean
 
 ## Limitations
 
-This is a course-level operating-systems scheduler simulation. It focuses on scheduling concepts, process coordination, and IPC-based simulation rather than being a production operating-system scheduler.
+This is a simple operating-systems scheduler simulation. It focuses on scheduling concepts, process coordination, and IPC-based simulation.
